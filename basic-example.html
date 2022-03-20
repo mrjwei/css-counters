@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Counter: Basic Example</title>
+  <style>
+    .container {
+      width: 60%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-top: 50px;
+      /* 1 */
+      counter-reset: basic-example;
+    }
+    .container div {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 50px;
+      background-color: lightblue;
+      color: coral;
+      font-size: 50px;
+      font-weight: bold;
+      position: relative;
+      /* 2 */
+      counter-increment: basic-example;
+    }
+    .container div::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border-radius: 50px;
+      top: -50px;
+      left: -50px;
+    }
+    .container div::after {
+      /* 3 */
+      content: "0"counter(basic-example);
+      display: block;
+      position: absolute;
+      top: -35px;
+      left: -35px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
